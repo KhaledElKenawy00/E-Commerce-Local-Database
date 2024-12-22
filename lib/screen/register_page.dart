@@ -1,3 +1,4 @@
+import 'package:eapp/screen/admin_panel.dart';
 import 'package:eapp/screen/signin_page.dart';
 import 'package:eapp/service/data_base.dart';
 import 'package:flutter/material.dart';
@@ -53,6 +54,21 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (BuildContext context) => AdminPanel(),
+                  ),
+                );
+              },
+              icon: Icon(
+                Icons.admin_panel_settings,
+                size: 30,
+              ))
+        ],
         backgroundColor: Colors.white,
         elevation: 0,
         title: Text(

@@ -1,3 +1,4 @@
+import 'package:eapp/screen/register_page.dart';
 import 'package:eapp/service/data_base.dart';
 import 'package:flutter/material.dart'; // You will create this page later to show the shipping orders
 
@@ -82,6 +83,45 @@ class _UserPageState extends State<UserPage> {
                         fontStyle: FontStyle.italic,
                         fontWeight: FontWeight.bold,
                         color: Colors.pink),
+                  ),
+                  SizedBox(
+                    height: 25,
+                  ),
+                  InkWell(
+                    onTap: () async {
+                      await _databaseHelper.delete(
+                          DatabaseHelper.tableCustomers, widget.userId);
+
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('User Delete Successful')),
+                      );
+
+                      Navigator.pop(context);
+                    },
+                    child: Container(
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Text(
+                            "Delete my account",
+                            style: TextStyle(
+                                fontSize: 30,
+                                fontStyle: FontStyle.italic,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.pink),
+                          ),
+                          Icon(
+                            Icons.delete,
+                            color: Colors.white,
+                          )
+                        ],
+                      ),
+                    ),
                   )
                 ],
               ),

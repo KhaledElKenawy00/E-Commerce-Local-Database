@@ -1,13 +1,14 @@
+import 'package:eapp/screen/dashboard_page.dart';
 import 'package:eapp/screen/home_page.dart';
 import 'package:eapp/service/data_base.dart';
 import 'package:flutter/material.dart';
 
-class SignInPage extends StatefulWidget {
+class SignInDashboard extends StatefulWidget {
   @override
-  _SignInPageState createState() => _SignInPageState();
+  _SignInDashboardState createState() => _SignInDashboardState();
 }
 
-class _SignInPageState extends State<SignInPage> {
+class _SignInDashboardState extends State<SignInDashboard> {
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
@@ -28,11 +29,7 @@ class _SignInPageState extends State<SignInPage> {
 
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(
-              builder: (BuildContext context) => HomePage(
-                userId: user["id"],
-              ),
-            ),
+            MaterialPageRoute(builder: (BuildContext context) => Dashboard()),
           );
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
